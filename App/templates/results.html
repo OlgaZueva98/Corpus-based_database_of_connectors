@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css" >
+	<link rel="stylesheet" href="css/manual.css" >
+	<script src="js/respond.min.js"></script>
+    <title>База данных коннекторов</title>
+</head>
+<br>
+<div class="col-lg-12 col-md-12 col-sm-12">
+	<p align = "right"><tt><strong><a href="http://127.0.0.1:5000" style="text-decoration: none;">&nbsp;Поиск по базе&nbsp;</a><a href="http://127.0.0.1:5000/context" style="text-decoration: none;">&nbsp;Контекстный поиск&nbsp;</a><a href="http://127.0.0.1:5000/file_load" style="text-decoration: none;">&nbsp;Загрузка данных&nbsp;</a></strong></tt></p><br>
+</div>
+<h1 style="color:White" align="center"><tt><strong>Результаты поиска</strong></tt></h1>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Roboto+Slab|PT+Sans+Caption&subset=latin,cyrillic);
+	*, *:before, *:after{transition:.3s linear}
+	{ 
+	margin: 0;                        
+	padding: 0;
+	}
+	body {
+	background: #000000;
+	font-family: 'PT Sans Caption', sans-serif;
+	font: 16px/25px; 
+	color: #008080;
+	}
+	p {
+	margin-right: 5%;
+	}
+	A {
+	color: #E8DAEF;
+	font: 16px;
+	}
+	A:visited {
+	color: #6A5ACD;
+	}
+	A:hover {
+	color: #FDFEFE;
+	}	
+	h1 {
+	  font-family: 'Roboto Slab', serif;
+	  font-weight: normal;
+	  font-size: 30px
+	}
+	.line {
+	  display: block;
+	  margin: 25px auto;
+	  position: relative;
+	  width: 56px;
+	  height: 1px; 
+	  background: white;
+	}
+	.line:before {
+	  content: "";
+	  position: absolute;
+	  width: 40px;
+	  margin: 0 auto;
+	  top: -3px;
+	  left: 0;
+	  right: 0;
+	  height: 1px;
+	  background: white;
+	}
+	.line:after {
+	  content: "";
+	  position: absolute;
+	  width: 24px;
+	  margin: 0 auto;
+	  top: 3px;
+	  left: 0;
+	  right: 0;
+	  height: 1px;
+	  background: white;
+	}
+	b {
+	text-decoration: underline;
+	}
+	div {
+	text-align: center;
+	}
+</style>
+<body link="#191970">
+<!-- JS код -->
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<div style="color:White" class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12">
+		<p align = "left"><b>Вы искали:</b></p>
+		<table>
+		{% for key, value in para.items() %}
+			<tr align = "left">
+				<th> {{ key }}: </th>
+				<td> {{ value }} </td>
+			</tr>
+		{% endfor %}
+		</table>
+	</div>
+</div>	
+<br>
+<div style="color:White" align = "center">
+	<p><b>Результат поиска:</b></p><br>
+		{% for table in tables %}
+				{{ table|safe }}
+		{% endfor %}
+</div>		
+</body> 
+</html>
